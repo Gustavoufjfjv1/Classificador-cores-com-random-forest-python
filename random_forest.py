@@ -321,6 +321,10 @@ if arquivo_imagem is not None:
                 }
             )
 
+            df_resultados_unicos = df_resultados.value_counts("Categoria").reset_index()
+            df_resultados_unicos = df_resultados_unicos.rename(columns={'count': 'Variações da cor'})
+
+
             # Contagem de ocorrências por categoria
             contagem_cores = df_resultados["Categoria"].value_counts()
 
@@ -329,3 +333,4 @@ if arquivo_imagem is not None:
 
             st.subheader("Tabela de Resultados")
             st.dataframe(df_resultados)
+            st.dataframe(df_resultados_unicos)
